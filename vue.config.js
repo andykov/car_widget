@@ -1,9 +1,9 @@
 const webpack = require('webpack')
 
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production'
-    ? '/widgets/dist/'
-    : '/',
+  // baseUrl: process.env.NODE_ENV === 'production'
+  //   ? '/widgets/dist/'
+  //   : '/',
   filenameHashing: false, // default - true
   configureWebpack: {
     plugins: [
