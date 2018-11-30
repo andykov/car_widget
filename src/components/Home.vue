@@ -174,7 +174,6 @@
 export default {
   data () {
     return {
-      taskId: 3,
       taskTitle: '',
       taskDescription: '',
       whatWatch: 'Film',
@@ -247,7 +246,6 @@ export default {
       // this.tasks обращение к массиву tasks
       // .push - перечисление какие параметры из массива нужно пушить
       const task = {
-        id: this.taskId,
         title: this.taskTitle,
         description: this.taskDescription,
         whatWatch: this.whatWatch,
@@ -256,11 +254,11 @@ export default {
         completed: false,
         editing: false
       }
+      this.$store.dispatch('newTask', task) // отправка константы в стор
       console.log(task)
       
 
       // Reset - сбрасывание введеных значений в полях и увеличение id на 1
-      this.taskId += 1
       this.taskTitle = ''
       this.taskDescription = ''
       this.tagsUsed = []

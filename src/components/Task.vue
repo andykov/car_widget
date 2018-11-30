@@ -23,7 +23,7 @@
                   <span class="task-item__label">
                     {{ task.whatWatch }}
                   </span>
-                  <span> Total Time:</span>
+                  <span> Total Time: {{task.time}}</span>
                 </div>
                 <span class="button-close" />
               </div>
@@ -54,26 +54,12 @@
 
 <script>
 export default {
-  data () {
-    return {
-      tasks: [
-        {
-          'id': 1,
-          'title': 'This title to task id = 1',
-          'description': 'This description to task id = 1',
-          'whatWatch': 'Film',
-          'completed': false,
-          'editing': false
-        },
-        {
-          'id': 2,
-          'title': 'This title to task id = 2',
-          'description': 'This description to task id = 2',
-          'whatWatch': 'Serial',
-          'completed': false,
-          'editing': false
-        }
-      ]
+  computed: {
+    // посколько есть зависимость от определенных геттеров
+    // то лучше использовать для описания computed
+    tasks () {
+      // к системным переменным нужно обращаться через $
+      return this.$store.getters.tasks
     }
   }
 }
